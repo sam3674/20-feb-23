@@ -1,0 +1,17 @@
+import sqlite3   #this file need to convert to function in future
+
+db= sqlite3.connect("schedule.db")
+
+# get cursor object
+cursor= db.cursor()
+import pandas as pd
+  
+# execute your query
+cursor.execute("SELECT * FROM schedule")
+# fetch all the matching rows 
+result = cursor.fetchall()
+df = pd.DataFrame(result)
+
+writer = pd.ExcelWriter('test.xlsx', engine='xlsxwriter')
+df.to_excel(writer, sheet_name='welcome', index=False)
+writer.save()

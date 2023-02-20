@@ -1,0 +1,23 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <h1>Scheduling App</h1>
+        
+        <table>
+            <tr>
+                <th>Task Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.start_time }}</td>
+                <td>{{ task.end_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
