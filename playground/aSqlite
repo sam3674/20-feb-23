@@ -14,8 +14,6 @@ class Schedule:
         """)
         self.conn.commit()
 
-  
-
     def add_task(self, task_name, start_time, end_time):
         if start_time >= end_time:
             print("Error: Invalid start and end time")
@@ -64,15 +62,15 @@ class Schedule:
         tasks = self.cursor.fetchall()
         return tasks
 
-schedule = Schedule()
+# schedule = Schedule()
 
-schedule.add_task("Meeting with John", 10, 11)
-schedule.add_task("Call with Jane", 11, 12)
-schedule.add_task("Meeting with jacky", 10, 11)
-schedule.add_task("Call with sam", 11, 12)
-#schedule.view_schedule()
-#schedule.remove_task(10)
-#schedule.view_schedule()
-a = schedule.get_tasks()
-print(a)
+# schedule.add_task("Meeting with John", 10, 11)
+# schedule.add_task("Call with Jane", 11, 12)
+# schedule.add_task("Meeting with jacky", 10, 11)
+# schedule.add_task("Call with sam", 11, 12)
+# #schedule.view_schedule()
+# #schedule.remove_task(10)
+# #schedule.view_schedule()
+# a = schedule.get_tasks()
+# print(a)
 

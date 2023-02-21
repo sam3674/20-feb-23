@@ -3,7 +3,6 @@ from flask import Flask, request, render_template
 import sqlite3
 app = Flask(__name__)
 
-
 def get_tasks():
             conn = sqlite3.connect("schedule.db")
             cursor = conn.cursor()
@@ -15,22 +14,15 @@ def get_tasks():
             tasks = cursor.fetchall()
             return tasks
 
-
-
-
 ##Define a route: You can define a route in Flask using the `route` decorator. Here's an example:
 @app.route("/")
 def homepage():
     return render_template("homepage.html")
-
-## Render a template: You can render a template in Flask using the `render_template` function. Here's an example:
 @app.route("/schedule")
 def schedule():
     tasks = get_tasks()
     print('line30')
     return render_template("schedule.html", tasks=tasks)
 
-
-
 if __name__=='__main__':
-    app.run(debug=True, use_debugger=False, use_reloader=True)
+    app.run(debug=True, port=5001, host='0.0.0.0')#,debug=True, use_debugger=False, use_reloader=True)
