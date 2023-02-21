@@ -25,4 +25,4 @@ def schedule():
     return render_template("schedule.html", tasks=tasks)
 
 if __name__=='__main__':
-    app.run(debug=True, port=5001, host='0.0.0.0')#,debug=True, use_debugger=False, use_reloader=True)
+    app.run(debug=True, port=5000, host='0.0.0.0')#,debug=True, use_debugger=False, use_reloader=True)
