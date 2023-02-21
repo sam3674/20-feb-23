@@ -1,6 +1,6 @@
 <html>
     <head>
-       
+        <title>Scheduling App</title>
     </head>
     <body>
         <h1>Scheduling App</h1>
@@ -13,9 +13,9 @@
             </tr>
             {% for task in tasks %}
             <tr>
-                <td>{{ task.task_name }}</td>
-                <td>{{ task.start_time }}</td>
-                <td>{{ task.end_time }}</td>
+                {% for row in task %}
+                <td>{{ row }}</td>
+                {% endfor %}
             </tr>
             {% endfor %}
         </table>

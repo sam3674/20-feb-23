@@ -1,5 +1,6 @@
 import sqlite3
 import csv
+
 class Schedule:
     def __init__(self):
         self.conn = sqlite3.connect("schedule.db")
@@ -46,15 +47,32 @@ class Schedule:
             ORDER BY start_time
         """)
         schedule = self.cursor.fetchall()
+        
         if not schedule:
             print("No tasks scheduled")
             return
         print("Task Name\tStart Time\tEnd Time")
         for task_name, start_time, end_time in schedule:
             print("{}\t\t{}\t\t{}".format(task_name, start_time, end_time))
+    
+    def get_tasks(self):
+        self.cursor.execute("""
+            SELECT task_name, start_time, end_time
+            FROM schedule
+            ORDER BY start_time
+        """)
+        tasks = self.cursor.fetchall()
+        return tasks
+
 schedule = Schedule()
+
 schedule.add_task("Meeting with John", 10, 11)
 schedule.add_task("Call with Jane", 11, 12)
-schedule.view_schedule()
-schedule.remove_task(10)
-schedule.view_schedule()
+schedule.add_task("Meeting with jacky", 10, 11)
+schedule.add_task("Call with sam", 11, 12)
+#schedule.view_schedule()
+#schedule.remove_task(10)
+#schedule.view_schedule()
+a = schedule.get_tasks()
+print(a)
+
