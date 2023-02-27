@@ -33,11 +33,13 @@ def schedule():
     if form.validate_on_submit():
         if form.user_add.data:
             flash(f'tasks : {form.AskTaskName.data}, added!')
-            schedule.add_task
-            (f"{form.AskTaskName.data}",form.AskStartTime.data,form.AskEndTime.data)
+            schedule.add_task(f"{form.AskTaskName.data}",form.AskStartTime.data,form.AskEndTime.data)
         if form.user_delete.data:
+            
+            
+            
             flash(f'tasks : {form.AskTaskName.data}, deleted!')
-            schedule.remove_task(form.AskStartTime.data)
+            schedule.remove_task(form.AskTaskName.data)
         return redirect(url_for('schedule'))
     return render_template("schedule.html", tasks=tasks,form=form)
 

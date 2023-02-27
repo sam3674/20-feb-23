@@ -17,12 +17,12 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo,NumberRange
 
 #for schedule page
 class AddNewTaskForm(FlaskForm):
-    AskTaskName = StringField('TaskName',
-                           validators=[DataRequired(), Length(min=2, max=20)])
-    AskStartTime = IntegerField('Start Time',
-                        validators=[DataRequired(), NumberRange(min=1, max=32)      ])  
-    AskEndTime = IntegerField('End Time',
-                        validators=[DataRequired(), NumberRange(min=1, max=32)      ])
+    AskTaskName = StringField('TaskName'
+                              ,validators=[DataRequired(), Length(min=0,max=20)])
+    AskStartTime = IntegerField('Start Time',validators=[
+         NumberRange(min=0, max=32) ],default=0)
+    AskEndTime = IntegerField('End Time',validators=[ 
+        NumberRange(min=0, max=32)],default=0 )
 
     user_add = SubmitField('add new task')
     user_delete = SubmitField('delete the task')

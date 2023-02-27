@@ -24,11 +24,11 @@ class Schedule:
             print("Task added successfully")
         except sqlite3.IntegrityError:
             print("Error: Task already exists at this time")
-    def remove_task(self, start_time):
+    def remove_task(self, task_name):
         self.cursor.execute("""
             DELETE FROM schedule
-            WHERE start_time=?
-        """, (start_time,))
+            WHERE task_name=?
+        """, (task_name,))
         self.conn.commit()
         if self.cursor.rowcount == 0:
             print("Error: Task not found")
