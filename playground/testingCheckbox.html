@@ -9,12 +9,12 @@
                 <th>End Time</th>
             </tr>
            
-            {% for task in tasks %}
+            {% for index, task in tasks %}
             <tr>
                 <td>{{ task[0] }}</td>
                 <td>{{ task[1] }}</td>
                 <td>{{ task[2] }}</td>
-
+                <input type="checkbox" name="checkbox_{{ index }}" id="checkbox_{{ index }}">
             </tr>
             {% endfor %}
             <div class=" content-section">

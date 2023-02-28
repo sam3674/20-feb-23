@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+    <form action="{{ url_for('process_checkbox') }}" method="post">
+        <label for="data">Data:</label>
+        <input type="text" id="data" name="data">
+        <br>
+        <input type="checkbox" id="checkbox" name="checkbox">
+        <label for="checkbox">Check me</label>
+        <br>
+        <br>
+        <input type="checkbox" id="checkbox" name="checkbox1">
+        <label for="checkbox">checkbox1 me</label>
+        <br>
+
+
+        <input type="submit" value="Submit">
+      </form>
+      
+
+
+</body>
+</html>
